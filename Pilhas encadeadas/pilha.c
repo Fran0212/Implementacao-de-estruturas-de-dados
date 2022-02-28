@@ -19,10 +19,6 @@ node* initStack()
 int emptyStack(node* stack)
 {
     // verifica se a pilha esta vazia
-    if (stack == NULL)
-    {
-        printf("\n\t\tPilha vazia\n");
-    } else printf("\n\t\tA pilha nao esta vazia\n\n");
     return stack == NULL;
 }
 
@@ -145,7 +141,7 @@ void printStack(node* stack)
     // copia para iteracao
     node* cpyStack = stack;
 
-    printf("\n\n\n\n");
+    printf("\n\n");
     // enquanto nao for nulo
     while (cpyStack != NULL)
     {
@@ -155,7 +151,7 @@ void printStack(node* stack)
         // cpyStack eh atualizada
         cpyStack = cpyStack->next;
     }
-    printf("\n\n\n\n");
+    printf("\n\n");
 }
 
 
