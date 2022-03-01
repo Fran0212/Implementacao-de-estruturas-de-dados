@@ -101,5 +101,5 @@ int main(void)
         }
     } while (option != 0);
 
-    printf("Muito obrigado pelo uso");
+    printf("\nMuito obrigado pelo uso");
 }
