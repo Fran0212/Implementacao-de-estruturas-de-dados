@@ -1,3 +1,8 @@
+/**
+ * Esse arquivo serve como uma interface bem basica,
+ * servindo apenas para demonstracao de algumas funcoes
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "pilha.h"
@@ -5,7 +10,12 @@
 
 int main(void)
 {
+    // inicializacao da pilha
     node* stack = initStack();
+
+    // option -> opcao inserida no menu
+    // data -> dado inserido na lista
+    // count -> quantidade de itens a ser tirados da pilha
     int option, data, count;
 
     do

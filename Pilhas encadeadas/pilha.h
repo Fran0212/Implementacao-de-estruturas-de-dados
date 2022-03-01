@@ -10,7 +10,7 @@ typedef struct stack
     struct stack* next;
 }node;
 
-// inicializazao da pilha
+// inicializacao da pilha
 node* initStack();
 
 // empilha a pilha

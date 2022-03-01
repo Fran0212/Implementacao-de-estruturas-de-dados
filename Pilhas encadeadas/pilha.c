@@ -9,6 +9,7 @@ node* initStack()
 
     // coloca um dado vazio 
     // pois pilhas devem ser inicializadas com NULL
+    // ja que sua base sempre apontara para NULL
     init = NULL;
 
     // retorna um ponteiro para a pilha
