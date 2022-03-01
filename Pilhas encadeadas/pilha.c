@@ -82,7 +82,7 @@ void subTop(node* stack)
 {
     // como ao fazer um push, next guarda a pilha intereira
     // eh so printar o topo da pilha guardada em next, para obtermos o subtopo
-    printf("\nO subtop eh: %d\n\n", stack->next->top);
+    printf("\nO subtopo eh: %d\n\n", stack->next->top);
 }
 
 

@@ -60,6 +60,8 @@ int main(void)
                 if (emptyStack(stack))
                 {
                     printf("\nA pilha esta vazia\n\n");
+                } if (sizeStack(stack) == 1){
+                    printf("\nO subtopo eh: %d\n\n", stack->top);
                 } else subTop(stack);
                 break;
             case 6:
