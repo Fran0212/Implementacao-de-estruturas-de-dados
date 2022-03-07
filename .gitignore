@@ -52,3 +52,5 @@ Mkfile.old
 dkms.conf
 Pilhas encadeadas/Pilhas encadeadas.rar
 Pilhas encadeadas/testePessoal.c
+*.json
+Listas encadeadas/teste.c
