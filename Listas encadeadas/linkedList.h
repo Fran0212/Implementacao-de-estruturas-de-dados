@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
-#endif
 // struct responsible for the linked list
 /*--------------------------------------*/
 // struct responsável pela lista encadeada
@@ -34,5 +31,4 @@ int lenLinkedList(node* list);
 
 int elementIndex(node* list, int item);
 
-
-
+int removeInIndex(node** list, int index);

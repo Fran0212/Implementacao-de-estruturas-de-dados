@@ -20,19 +20,19 @@ int insertInIndex(node** list, int data, int index)
     /*-------------------*/
     // alocation of the new node
     node* new = (node*)malloc(sizeof(node*));
+    // dado eh atribuido
+    new->data = data;
     // auxiliar 
     node* aux = *list;
     // posicao
     int indexCount = 0;
-    // dado eh atribuido
-    new->data = data;
 
     // verifica se a lista esta vazia e se o indice eh zero
     // pois se ela estiver vazia o unico jeito de inserir eh no incio
-    if (!(*list) && index != 0) return 0;
+    if (emptyList(*list) && index != 0) return 0;
 
     // verifica se o indice eh possivel
-    if (index > lenLinkedList(*list) - 1) return 0;
+    if (index > lenLinkedList(*list)) return 0;
     
     // switch para certos atalhos
     switch (index)
@@ -40,9 +40,9 @@ int insertInIndex(node** list, int data, int index)
         // se o indice for 0 
         case 0:
             // o proximo do novo recebe a lista
-            new->next = NULL;
+            new->next = *list;
             // lista recebe o novo
-            (*list) = new;
+            *list = new;
             break;
         case -1:
             // itera ateh o ultimo item
@@ -83,10 +83,11 @@ void printList(node* list)
     while (cpyList != NULL)
     {
         // printa o dado da lista 
-        printf("{%d} ", cpyList->data);
+        printf("{%d}--->", cpyList->data);
         // cpyList eh atuaalizado
         cpyList = cpyList->next;
     }
+    printf("NULL\n");
 }
 
 int lenLinkedList(node* list)
@@ -107,16 +108,56 @@ int lenLinkedList(node* list)
     return size;
 }
 
-int elementIndex(node* list, int item)
+int elementIndex(node* list, int element)
 {
     int index = 0;
     node* cpyList = list;
 
-    while (cpyList != NULL)
+    while (cpyList->data != element)
     {
         index++;
         cpyList = cpyList->next;
     }
 
     return index;
+}
+
+int removeInIndex(node** list, int index)
+{
+    node* aux = *list, *prev = NULL;
+    int countIndex = 0;
+
+    if (emptyList(*list) && index != 0) return 0;
+
+    if (index > lenLinkedList(*list)) return 0;
+
+    switch (index)
+    {
+        case 0:
+            *list = (*list)->next;
+            return 
+        case -1:
+            while (aux->next != NULL)
+            {
+                prev = aux;
+                aux = aux->next;
+            }
+
+            prev->next = aux->next;
+            (*list)->next = prev;
+            free(aux);
+            break;
+        default:
+            while (countIndex != index)
+                {
+                    countIndex++;
+                    prev = aux;
+                    aux = aux->next;
+                }
+
+            prev->next = aux->next;
+            free(aux);
+            *list = prev;
+            break;
+    }
 }
