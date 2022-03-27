@@ -41,3 +41,14 @@ int totalDequeue(node** queue);
 /*--------------*/
 // queue size
 int sizeOfQueue(node* queue);
+
+// compara duas filas
+/*----------------*/
+// Compare two rows
+int queueCmp(node* queueOne, node* queueTwo);
+
+// copia uma lista em outra
+/*-----------------------*/
+// Copies a list on another
+int queueCpy(node** source, node** destination);
+

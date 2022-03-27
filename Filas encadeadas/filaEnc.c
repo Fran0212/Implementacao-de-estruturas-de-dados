@@ -133,6 +133,11 @@ int sizeOfQueue(node* queue)
     // While the queue is not empty ...
     while (queue != NULL)
     {
+        // fila eh atualizada
+        /*-----------------*/
+        // queue is refreshed
+        queue = queue->next;
+
         // contador eh incrementado
         /*-----------------------*/
         // Increasing the counter
@@ -169,30 +174,61 @@ int totalDequeue(node** queue)
 
 int queueCmp(node* queueOne, node* queueTwo)
 {
+    // se os tamanhos foram diferentes retorna -1
+    /*-----------------------------------------*/
+    // if sizes are different returns -1
     if (sizeOfQueue(queueOne) != sizeOfQueue(queueTwo)) return -1;
 
-    while (queueOne != NULL && queueTwo != NULL)
+    // enquanto a fila nao for nula...
+    /*-----------------------------*/
+    // While the queue is not null ...
+    while (queueOne != NULL)
     {
+        // se os dados forem diferentes retorna 0
+        /*------------------------------------*/  
+        // If the data is different returns 0 
         if (queueOne->data != queueTwo->data)
         {
             return 0;
         }
 
+        // as filas sao atualizadas
+        /*-----------------------*/
+        // The queues are updated
         queueOne = queueOne->next;
         queueTwo = queueTwo->next;
     }
 
+    // retorna 1 se tudo ocorrer bem
+    /*----------------------------*/
+    // Returns 1 if everything occurs well
     return 1;
 }
 
 
 int queueCpy(node** source, node** destination)
 {
-    totalDequeue(&destination);
+    // se o destino nao estiver vazio
+    // sera esvaziado
+    /*---------------------------*/
+    // is destination is not empty
+    // will be emptied
+    if (!emptyQueue(*destination)) totalDequeue(destination);;
 
-    if (!emptyQueue(destination)) return 0;
+    // enquanto o destino receber a fonte
+    /*---------------------------------*/
+    // while the destination receives the source
+    while (*destination = *source)
+    {
+        // destino e fonte sao atualizados
+        /*-----------------------------*/
+        // destination and source are updated
+        *destination = (*destination)->next;
+        *source = (*source)->next;
+    }
 
-    while (*destination = *source);
-
+    // retorna a verificacao se as filas sao iguais
+    /*-------------------------------------------*/
+    // Returns to check if queues are equal
     return queueCmp(*source, *destination);
 }
