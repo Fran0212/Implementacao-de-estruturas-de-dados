@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifndef LINKEDLIST_H
+#define LINKDLIST_H
 // struct responsible for the linked list
 /*--------------------------------------*/
 // struct responsável pela lista encadeada
@@ -55,9 +57,4 @@ int fullToEmpty(node** list);
 // copia uma lista em outra
 int listCpy(node** source, node** destination);
 
-// mostra os itens do menu
-void menu(node* list);
-
-// interacao do usuario
-void userMenu(node* list);
-
+#endif
