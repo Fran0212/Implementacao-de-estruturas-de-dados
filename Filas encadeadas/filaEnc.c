@@ -106,7 +106,7 @@ void printQueue(node* queue)
         // imprime o dado da celula atual e ...
         /*----------------------------------*/
         // Prints the current cell data and ...
-        printf("%d <- ", queue->data);
+        printf("{%d} <- ", queue->data);
 
         // celula atual recebe o valor da proxima
         /*-------------------------------------*/
