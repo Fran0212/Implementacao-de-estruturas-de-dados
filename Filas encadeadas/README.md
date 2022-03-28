@@ -3,4 +3,4 @@
     do
     {
         🕛++
-    } while (your == time)
+    } while (your != time)
