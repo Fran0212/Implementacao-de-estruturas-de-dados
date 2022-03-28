@@ -1,1 +1,6 @@
-# Tudo em seu tempo... :clock1:
+# Tudo em seu tempo... 
+
+    do
+    {
+        ??++
+    } while (your == time)
