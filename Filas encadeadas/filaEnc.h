@@ -3,7 +3,14 @@
 
 typedef struct queue
 {
+    // dado a ser inserido
+    /*-----------------*/
+    // data to be inserted
     int data;
+
+    // ponteiro para o proximo
+    /*---------------------*/
+    // pointer to the next
     struct queue* next;
 }node;
 

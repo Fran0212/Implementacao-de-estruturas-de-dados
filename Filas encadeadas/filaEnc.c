@@ -30,7 +30,7 @@ int enqueue(node** queue, int data)
     // Declaration of enqueue assistant
     node* aux = *queue;
 
-    // declaracao de valores
+    // atribuicao de valores
     /*--------------------*/
     // value attribution
     new->data = data;
