@@ -7,7 +7,7 @@
 
 ## Estrutura
 
-- A estrutura possui um dado e um ponteiro para o proximo item.
+- A estrutura possui um dado e um ponteiro para o próximo item.
     - Data → Inteiro representando o dado a ser inserido.
     - Next → Ponteiro para a fila.
 
@@ -140,4 +140,3 @@ int dequeue(node** queue)
 > - Nesse readme, você leu apenas sobre o básico da fila, ou seja, como você inicializa, insere e tira dados dela.
 > - Agora, é necessário que você leia as outras funções implementadas para que essa estrutura fique fixa na sua mente.
 > - Desde já, obrigado por ler, bons estudos, e fique à vontade para abrir issues.
->
