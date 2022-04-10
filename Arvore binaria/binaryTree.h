@@ -32,21 +32,25 @@ typedef struct binaryTree
 
     struct binaryTree* right;
     struct binaryTree* left;
+    struct binaryTree* father;
 }node;
 
 void startTree(node** tree);
 
-int emptyNode(node* tree);
+int isEmpty(node* tree);
 
-void nodeValueAttribution(node** tree, int data);
+void insert(node** tree, int data);
 
-int insertNode(node** tree, int data);
-
-int attributionSearch(node** tree, node** newNode);
-
-int search(node* tree, int data);
+node* search(node* tree, int data);
 
 int max(node* tree);
 
 int min(node* tree);
+
+int sussessor(node* tree, int data);
+
+int predecessor(node* tree, int data);
+
+int height (node* tree);
+
 #endif
