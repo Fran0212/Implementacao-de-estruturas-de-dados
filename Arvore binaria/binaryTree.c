@@ -39,6 +39,7 @@ void insert(node** tree, int data)
         /*---------------------*/
         // Arvore receives the new
         *tree = new;
+        root = *tree;
     }
 
     // caso contrario...
@@ -155,7 +156,7 @@ node* search(node* tree, int data)
     }
 }
 
-int max(node* tree)
+node* max(node* tree)
 {
     // se os dois "lados" estiverem vazios...
     /*------------------------------------*/
@@ -165,7 +166,7 @@ int max(node* tree)
         // retorna o numero
         /*---------------*/
         // Returns the number
-        return tree->data;
+        return tree;
     }
 
     // retorna novamente a funcao passando sempre o lado direito
@@ -174,7 +175,7 @@ int max(node* tree)
     return max(tree->right);
 }
 
-int min(node* tree)
+node* min (node* tree)
 {
     // se os dois "lados" estiverem vazios...
     /*------------------------------------*/
@@ -184,16 +185,16 @@ int min(node* tree)
         // retorna o numero
         /*---------------*/
         // Returns the number
-        return tree->data;
+        return tree;
     }
 
     // retorna novamente a funcao passando sempre o lado esquerdo
     /*------------------------------------------------------*/
     // Returns the function again passing the left side
-    return max(tree->left);
+    return min(tree->left);
 }
 
-int sussessor(node* tree, int data)
+node* sucessor(node* tree, int data)
 {
     // se o no estiver vazio...
     /*----------------------*/
@@ -203,23 +204,23 @@ int sussessor(node* tree, int data)
         // retorna 0
         /*-------*/
         // Returns 0
-        return 0;
+        return NULL;
     }
 
     // procura o no passado na funcao
     /*----------------------------*/
     // seeks it in the passed in the function
-    node* find = search(tree, data);
+    node* found = search(tree, data);
 
     // se o no da direita nao estiver vazio...
     /*-------------------------------------*/
     // If the right node is not empty ...
-    if (!isEmpty(find->right))
+    if (!isEmpty(found->right))
     {
         // retorna o minimo da direita
         /*--------------------------*/
         // Returns the least right
-        return min(find->right);
+        return min(found->right);
     }
 
 
@@ -228,12 +229,12 @@ int sussessor(node* tree, int data)
         // father eh o pai do no que procuramos
         /*-----------------------------------*/
         // father is the father of node we are looking for
-        node* father = find->father;
+        node* father = found->father;
 
         // enquanto o pai nao for nulo e dado do pai for menor que o no a ser analisado...
         /*------------------------------------------------------------------------------*/
         // While the Father is not null and his father is smaller than the node to be analyzed ...
-        while (father != NULL && father->data < find->data)
+        while (father != NULL && father->data < found->data)
         {
             // escalamos a arvore
             /*----------------*/
@@ -244,11 +245,11 @@ int sussessor(node* tree, int data)
         // retorna o dado armazenado pelo pai
         /*--------------------------------*/
         // Returns the data stored by the father
-        return father->data;
+        return father;
     }
 }
 
-int predecessor(node* tree, int data)
+node* predecessor(node* tree, int data)
 {
     // se o no estiver vazio...
     /*----------------------*/
@@ -264,7 +265,7 @@ int predecessor(node* tree, int data)
     // procura o no passado na funcao
     /*----------------------------*/
     // seeks it in the passed in the function
-    node* find = search(tree, data);
+    node* found = search(tree, data);
 
     // se o no da esquerda nao estiver vazio...
     /*-------------------------------------*/
@@ -282,12 +283,12 @@ int predecessor(node* tree, int data)
         // father eh o pai do no que procuramos
         /*-----------------------------------*/
         // father is the father of node we are looking for
-        node* father = find->father;
+        node* father = found->father;
 
         // enquanto o pai nao for nulo e dado do pai for maior que o no a ser analisado...
         /*------------------------------------------------------------------------------*/
         // While the Father is not null and his father is bigger than the node to be analyzed ...
-        while (father != NULL && father->data < find->data)
+        while (father != NULL && father->data < found->data)
         {
             // escalamos a arvore
             /*----------------*/
@@ -298,7 +299,7 @@ int predecessor(node* tree, int data)
         // retorna o dado armazenado pelo pai
         /*--------------------------------*/
         // Returns the data stored by the father
-        return father->data;
+        return father;
     }
 }
 
@@ -346,3 +347,123 @@ int height (node* tree)
     }
 }
 
+int isLeaf(node* tree)
+{
+    // verifica se os dois lados sao vazios
+    /*----------------------------------*/
+    // verify that the two sides are empty
+    return (isEmpty(tree->left) && isEmpty(tree->right));
+}
+
+int isRoot(node* tree)
+{
+    // verifica se o no eh raiz
+    /*----------------------*/
+    // Checks if the node is Root
+    return tree == root;
+}
+
+int isNode(node* tree)
+{
+    // se apenas o lado esquerdo estiver preenchido...
+    /*---------------------------------------------*/
+    // If only the left side is filled ...
+    if (!isEmpty(tree->left))
+    {
+        // retorna 1
+        /*--------*/
+        // returns 1
+        return 1;
+    }
+
+    // se apenas o lado direito estiver preenchido...
+    /*---------------------------------------------*/
+    // If only the right side is filled ...
+    if (!isEmpty(tree->right))
+    {
+        // retorna 2
+        /*--------*/
+        // returns 2
+        return 2;
+    }
+
+    // se os dois lados estiverem preenchidos...
+    /*---------------------------------------*/
+    // if the both side are filled...
+    if (!isEmpty(tree->left) && !isEmpty(tree->right))
+    {
+        // retorna 3
+        /*--------*/
+        // returns 3
+        return 3;
+    }
+}
+
+int removeNode(node** tree, int data)
+{
+    // se estiver vazio retorna 0
+    /*------------------------*/
+    // if it is empty returns 0
+    if (isEmpty(*tree)) return 0;
+
+    // acha o no a ser removido
+    /*----------------------*/
+    // finds the node to be removed
+    node* found = search(*tree, data);
+
+    // se for uma folha...
+    if (isLeaf(found))
+    {
+        // se a folha for raiz...
+        if (isRoot(found))
+        {
+            // no recebe NULL
+            *tree = NULL;
+            // raiz recebe NULL
+            root = *tree;
+        }
+
+        if (found->data < found->father->data)
+        {
+            found->father->left = NULL;
+        }
+
+        else
+        {
+            found->father->right = NULL;
+        }
+    }
+
+    int Node = isNode(found);
+
+    if (Node == 1)
+    {
+        if (isRoot(found))
+            root = found->left;
+
+        found->father->left = found->left;
+    }
+
+
+    if (Node == 2)
+    {
+        if (isRoot(found))
+            root = found->right;
+
+        found->father->right = found->right;
+    }
+
+    if (Node == 3)
+    {
+        return 0;
+    }
+
+    return 1;
+}
+
+void inOrder(node* tree)
+{
+    inOrder(tree->left);
+    printf("%d-> ", tree->data);
+    inOrder(tree->right);
+}

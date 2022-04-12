@@ -25,7 +25,6 @@
 /*=======VALUES DISPOSITION=======*/
 
 
-
 typedef struct binaryTree
 {
     int data;
@@ -35,6 +34,8 @@ typedef struct binaryTree
     struct binaryTree* father;
 }node;
 
+node* root;
+
 void startTree(node** tree);
 
 int isEmpty(node* tree);
@@ -43,14 +44,19 @@ void insert(node** tree, int data);
 
 node* search(node* tree, int data);
 
-int max(node* tree);
+node* max(node* tree);
 
-int min(node* tree);
+node* min(node* tree);
 
-int sussessor(node* tree, int data);
+node* sucessor(node* tree, int data);
 
-int predecessor(node* tree, int data);
+node* predecessor(node* tree, int data);
 
-int height (node* tree);
+int height(node* tree);
 
+int isRoot(node* tree);
+
+int removeNode(node** tree, int data);
+
+void inOrder(node* tree);
 #endif
