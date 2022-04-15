@@ -1,6 +1,6 @@
 # Estruturas de dados
 
-> Nesse repositório, você encontrará a implementação das principais estruturas dados da linguagem C.
+> Nesse repositório, você encontrará a implementação de algumas das principais estruturas dados na linguagem C.
 > 
 
 ## Importância do estudo de estruturas de dados
