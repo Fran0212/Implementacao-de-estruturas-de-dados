@@ -59,3 +59,20 @@ Listas encadeadas/user.h
 Arvore binaria/teste.c
 Listas encadeadas/linkedList.h
 Listas encadeadas/linkedList.h
+.idea/.name
+*.iml
+*.xml
+cmake-build-debug/.cmake/api/v1/query/cache-v2
+cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1
+cmake-build-debug/.cmake/api/v1/query/codemodel-v2
+*.cmake
+*.txt
+*.log
+cmake-build-debug/Implementacao_de_estruturas_de_dados
+*.ninja
+*.check_cache
+cmake-build-debug/CMakeFiles/3.22.3/CompilerIdCXX/CMakeCXXCompilerId.cpp
+cmake-build-debug/CMakeFiles/3.22.3/CompilerIdC/CMakeCCompilerId.c
+*.bin
+cmake-build-debug/.ninja_log
+cmake-build-debug/.ninja_deps
